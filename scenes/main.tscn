@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bid3d6ucn5in4"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_f52u5"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_6b2a8"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f52u5")
+
+[node name="Waveform" type="Line2D" parent="."]
+points = PackedVector2Array(0, -2)
+antialiased = true
+
+[node name="RecordButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 51.0
+offset_right = 101.0
+offset_bottom = 114.0
+grow_horizontal = 2
+text = "Record"
+
+[node name="MicOutput" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_6b2a8")
+bus = &"Record"
+
+[connection signal="pressed" from="RecordButton" to="." method="_on_record_button_pressed"]

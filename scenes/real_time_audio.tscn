@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://boer0yhsjv2mj"]
+
+[ext_resource type="Script" path="res://scripts/real_time_audio.gd" id="1_3jd7s"]
+
+[node name="RealTimeAudio" type="AudioStreamPlayer"]
+script = ExtResource("1_3jd7s")
